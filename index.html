@@ -22,25 +22,38 @@
   <body>
     <nav>
 
+      <!--Do NOT move below modal (bug)-->
       <a href="r/discord">
         <i class="fa-brands fa-discord"></i>
       </a>
 
-      <a href="r/twitter">
-        <i class="fa-brands fa-x-twitter
-        "></i>
-      </a>
-
+      <!--Do NOT move below modal (bug)-->
       <a href="r/github">
         <i class="fa-brands fa-github"></i>
       </a>
+
+
+      <!-- Trigger/Open The Modal -->
+      <a id="myBtn" >
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="x-publications-feed-container">
+            <a class="twitter-timeline" data-width="1000" data-height="470" data-theme="dark" href="https://twitter.com/WumpusCentral">Publications</a> 
+        </div>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      </div>
+
     </nav>
 
     <main>
-      <div class="x-publications-feed-container">
-        <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/WumpusCentral?ref_src=twsrc%5Etfw">Recent Publications</a> 
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
       <div class="logo-container">
         <img src="assets/iconnobg.png" />
       </div>
@@ -50,5 +63,6 @@
         <p>Your favourite server focused on Discord; news, leaks, datamines and beta-testing content!</p>
       </div>
     </main>
+    <script src="assets/script.js"></script>
   </body>
 </html>

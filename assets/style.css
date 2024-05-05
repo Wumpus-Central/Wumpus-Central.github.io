@@ -199,3 +199,51 @@ nav a {
     animation: fade-from-right .5s ease-out .1s normal forwards;
   }
 }
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  border-radius: 5px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #000000;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  width: 200px; /* Full width */
+  height: 500px; /* Full height */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  position: relative; /* Add relative positioning to ensure z-index works */
+  z-index: 3; /* Higher z-index to ensure it's above other content */
+  border-radius: 10px;
+}
+
+/* The Close Button */
+.close {
+  color: #ffffff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-left: 3.5px;
+}
+
+.close:hover,
+.close:focus {
+  color: gray;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+nav, main {
+  z-index: 1; /* Lower z-index than modal content */
+}
