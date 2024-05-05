@@ -247,3 +247,7 @@ nav a {
 nav, main {
   z-index: 1; /* Lower z-index than modal content */
 }
+
+.cursor {
+  cursor: pointer;
+}
