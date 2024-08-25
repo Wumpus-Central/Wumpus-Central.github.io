@@ -3,6 +3,3 @@
 
    Source Code for [Wumpus Cetral Website](https://wumpus-central.github.io)
 </div>
-
----
-This is shit, we know.

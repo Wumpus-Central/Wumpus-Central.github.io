@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+body {
+    font-family: Nunito, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #23272A;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #5865F2;
+    padding: 6px 6px;
+}
+
+header .logo img {
+    height: 50px;
+    margin-left: 15px;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.main {
+    /* background: url("") no-repeat center center/cover; */
+    color: white;
+    text-align: center;
+    padding: 73px 100px;
+}
+
+.main h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.main p {
+    font-size: 1.5em;
+}
+
+.news {
+    color: white;
+    text-align: center;
+}
+
+.news-grid {
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 10px 20px;
+}
+
+.news-item {
+    background-color: #2C2F33;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.news-item img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.news-item h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.news-item p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.news-item a {
+    text-decoration: none;
+    color: #7289DA;
+    font-weight: bold;
+}
+
+.view-more {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.view-more a {
+    color: #7289DA;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #2C2F33;
+    color: white;
+    text-align: center;
+    padding: 7px 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+
+    header nav ul {
+        justify-content: flex-start;
+    }
+    
+    .main {
+        padding: 40px 10px;
+    }
+    
+    .main h1 {
+        font-size: 2em;
+    }
+    
+    .main p {
+        font-size: 1em;
+    }
+    
+    .news-item {
+        padding: 10px;
+    }
+    
+    .news-item h2 {
+        font-size: 1.2em;
+    }
+    
+    .news-item p {
+        font-size: 0.8em;
+    }
+}

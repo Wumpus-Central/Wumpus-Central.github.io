@@ -1,68 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#5451C1">
-
-    <meta property="og:title" content="Wumpus Central" />
-    <meta property="og:description" content="The organization focused around of Discord platform development." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://wumpus-central.github.io" />
-    <meta property="og:image" href="https://wumpus-central.github.io/assets/icon.png" />
-
     <title>Wumpus Central</title>
-
-    <script src="https://kit.fontawesome.com/9098dca67f.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/png" href="assets/ico_favicon_brand_rounded.png">
-    <link rel="favicon" sizes="128x128" href="assets/ico_favicon_brand_rounded.png">
-    <link href="assets/style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <nav>
-
-      <!--Do NOT move below modal (bug)-->
-      <a href="r/discord">
-        <i class="fa-brands fa-discord"></i>
-      </a>
-
-      <!--Do NOT move below modal (bug)-->
-      <a href="r/github">
-        <i class="fa-brands fa-github"></i>
-      </a>
-
-
-      <!-- Trigger/Open The Modal -->
-      <a id="myBtn" class="cursor">
-        <i class="fa-brands fa-x-twitter"></i>
-      </a>
-
-      <!-- The Modal -->
-      <div id="myModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="x-publications-feed-container">
-            <a class="twitter-timeline" data-width="1000" data-height="470" data-theme="dark" href="https://twitter.com/WumpusCentral">Publications</a> 
+    <link rel="icon" type="image/x-icon" href="assets/icon_rounded.png">
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/icon_no_bg.png" alt="Wumpus Central">
         </div>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-      </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="https://discord.gg/wumpus-central-1087801778365546556">Discord</a></li>
+                <li><a href="https://x.com/WumpusCentral">Twitter</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    </nav>
+    <section class="main">
+        <h1>Wumpus Central</h1>
+        <p>Community focused on Discord Datamines, News, Leaks and Beta Features Previews!</p>
+    </section>
 
-    <main>
-      <div class="logo-container">
-        <img src="assets/iconnobg.png" />
-      </div>
+    <section class="news">
+        <h2>News</h2>
+    </section>
 
-      <div class="text-container">
-        <h2>Wumpus Central</h2>
-        <p>Your favourite server focused on Discord; news, leaks, datamines and beta-testing content!</p>
-      </div>
-    </main>
-    <script src="assets/script.js"></script>
-  </body>
+    <section id="news" class="news-grid">
+        <article class="news-item">
+            <img src="assets/DiscordRefresh.png", width="450px" height="250px">
+            <h2>Discord is working on<br>Desktop Client rebrand plans</h2>
+            <p>At this stage, Discord has provided their research group with materials from 4 different concept graphics.<br>The research group is asked about the impressions and "prestige" of the shown client appearance.</p>
+            <a href="https://x.com/WumpusCentral/status/1806369395763019878">Continue Reading</a>
+        </article>
+        <article class="news-item">
+            <img src="assets/DiscordRefreshTwitter.jpeg", width="450px" height="250px">
+            <h2>Discord started introducing<br>new rebrand into Desktop App</h2>
+            <p>Discord has added the Desktop Client Rebrand into their Desktop App,<br>press here below on "Continue Reading" to view the Twitter Post.</p>
+            <a href="https://x.com/WumpusCentral/status/1814047714910384449">Continue Reading</a>
+        </article>
+    </section>
+    <section class="view-more">
+        <a href="https://x.com/WumpusCentral">View More on Twitter</a>
+    </section>
+    <footer>
+        <ul>
+            <li><a href="https://discord.gg/wumpus-central-1087801778365546556">Discord</a></li>
+            <li><a href="https://x.com/WumpusCentral">Twitter</a></li>
+        </ul>
+    </footer>
+</body>
 </html>
