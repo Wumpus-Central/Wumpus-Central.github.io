@@ -1,70 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Wumpus Central</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Wumpus Central</title>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <meta content="Wumpus Central" property="og:title" />
-        <meta content="Discord tools and news website with it's own discord experiments rollouts database!" property="og:description" />
-        <meta content="https://wumpus-central.github.io/" property="og:url" />
-        <meta content="https://wumpus-central.github.io/assets/images/icon_rounded.png" property="og:image" />
+        <meta content="og:description" property="Discord tools and news website with it's own discord experiments rollouts database!" />
+        <meta content="https://wumpus-central.github.io/experiments-archive/" property="og:url" />
+        <meta content="https://wumpus-central.github.io/assets/images/icon_circle.png" property="og:image" />
 
         <meta property="description" content="Discord tools and news website with it's own discord experiments rollouts database!"/>
-        <meta name="keywords" content="discord datamining, experiments, rollouts, discord news">
+        <meta name="keywords" content="discord experiments, discord rollouts, discord servers, discord updates">
         <meta name="robots" content="index, follow">
 
         <meta content="#5865F2" data-react-helmet="true" name="theme-color" />
-        <link rel="icon" type="image/x-icon" href="./assets/images/icon_rounded.png">
-        <link rel="stylesheet" href="./assets/styles.css">
-        <script src="./assets/app.js"></script>
+        <link rel="icon" type="image/x-icon" href="https://wumpus-central.github.io/assets/images/icon_circle.png">
+
+        <link href="./assets/styles.css" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <div class="logo">
-                <img src="assets/images/icon_no_bg.png" alt="Wumpus Central">
-            </div>
-            <nav aria-label="breadcrumb">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="https://wumpus-central.github.io/experiments-archive">Experiments Rollouts (WIP)</a></li>
-                    <li><a href="https://discord.gg/wumpus-central-1087801778365546556">Discord</a></li>
-                    <li><a href="https://x.com/WumpusCentral">X/Twitter</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <section class="main">
-            <h1>Wumpus Central</h1>
-            <p>Discord Datamining community and reliable source!</p>
-        </section>
-
-        <section class="news">
-            <h2>Discord News</h2>
-        </section>
-
-        <section id="news" class="news-grid">
-            <article class="news-item">
-                <img src="./assets/images/DiscordRefresh.png", width="450px" height="250px" alt="Discord redesign 2025 plans concept graphics">
-                <h2>Discord works on<br>Desktop Client rebrand plans</h2>
-                <p>At this stage, Discord has provided their research group with materials from 4 different concept graphics.<br>The research group is asked about the impressions and "prestige" of the shown client appearance.</p>
-                <a href="https://x.com/WumpusCentral/status/1806369395763019878">Continue Reading</a>
-            </article>
-            <article class="news-item">
-                <img src="./assets/images/DiscordRefreshTwitter.jpeg", width="450px" height="250px" alt="Discord redesign 2025 preview">
-                <h2>Discord introduces<br>new rebrand into Desktop App code</h2>
-                <p>Discord has added the Desktop Client Rebrand into their Desktop App,<br>press here below on "Continue Reading" to view the Twitter Post.</p>
-                <a href="https://x.com/WumpusCentral/status/1814047714910384449">Continue Reading</a>
-            </article>
-        </section>
-        <section class="view-more">
-            <a href="https://x.com/WumpusCentral">View Feed on Wumpus Central Twitter</a>
-        </section>
-        <footer>
-            <ul>
-                <li><a href="https://discord.gg/wumpus-central-1087801778365546556">Discord</a></li>
-                <li><a href="https://x.com/WumpusCentral">X/Twitter</a></li>
+        <header aria-label="Main Navigation">
+            <ul class="navButtonsContainer">
+                <li>
+                    <a href="/" class="navButton">
+                        <div class="logo">
+                            <img src="./assets/images/icon_no_bg.png" alt="Wumpus Central Logo">
+                        </div>
+                    </a>
+                </li>
+                <li><a href="./experiments-archive/" class="navButton">Experiments Archive</a></li>
             </ul>
-        </footer>
+        </header>
+        <div id="page-mount">
+        </div>
+        <script src="./assets/app.js"></script>
+        <script>pageUnderConstruction()</script>
     </body>
 </html>
