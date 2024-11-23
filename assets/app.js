@@ -2,7 +2,7 @@ function pageUnderConstruction(){
     const pageMount = document.getElementById("page-mount");
 
     const underConstruction = document.createElement("div");
-    const content= document.createElement("p")
+    const content= document.createElement("h1")
 
     content.textContent = `The maze isn't meant for you`;
 
