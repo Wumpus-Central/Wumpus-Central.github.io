@@ -1,23 +1,34 @@
-function pageUnderConstruction(){
-    const pageMount = document.getElementById("page-mount");
+function pageUnderConstruction() {
+  const pageMount = document.getElementById("page-mount");
 
-    const underConstruction = document.createElement("div");
-    const header = document.createElement("h1");
-    const description = document.createElement("p");
+  const underConstruction = document.createElement("div");
+  underConstruction.style.backgroundColor = "#f0f2f5";
+  underConstruction.style.border = "1px solid #ccc";
+  underConstruction.style.borderRadius = "5px";
+  underConstruction.style.padding = "20px";
+  underConstruction.style.fontFamily = "sans-serif";
+  underConstruction.style.display = "flex";
+  underConstruction.style.flexDirection = "column";
+  underConstruction.style.alignItems = "center";
+  underConstruction.style.justifyContent = "center";
 
-    underConstruction.style.paddingLeft = "20px";
-    underConstruction.style.paddingTop = "20px";
+  const header = document.createElement("h1");
+  header.textContent = "The maze isn't meant for you";
+  header.style.fontSize = "1.5em";
+  header.style.marginBottom = "10px";
+  header.style.color = "#232629";
 
-    header.style.margin = 0;
-    header.textContent = `The maze isn't meant for you`;
-    
-    description.textContent = "Service Work In Progress - come back later!"
-    
-    underConstruction.appendChild(header);
-    underConstruction.appendChild(description);
+  const description = document.createElement("p");
+  description.textContent = "Service Work In Progress - come back later!";
+  description.style.fontSize = "1em";
+  description.style.color = "#66757c";
 
-    pageMount.appendChild(underConstruction);
+  underConstruction.appendChild(header);
+  underConstruction.appendChild(description);
+
+  pageMount.appendChild(underConstruction);
 }
+
 
 async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
