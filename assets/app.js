@@ -19,7 +19,7 @@ function pageUnderConstruction() {
   header.style.color = "#232629";
 
   const description = document.createElement("p");
-  description.textContent = "Service Work In Progress - come back later!";
+  description.textContent = "Service Work In Progress - come back... someday?";
   description.style.fontSize = "1em";
   description.style.color = "#66757c";
 
