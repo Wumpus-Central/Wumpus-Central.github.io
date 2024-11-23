@@ -8,27 +8,30 @@ function pageUnderConstruction() {
   underConstruction.style.padding = "20px";
   underConstruction.style.fontFamily = "sans-serif";
   underConstruction.style.margin = "20px";
+  underConstruction.style.width = "400px"; // Adjust width as needed
 
   const cardHeader = document.createElement("div");
   cardHeader.style.backgroundColor = "#232629";
   cardHeader.style.color = "#fff";
   cardHeader.style.padding = "10px";
   cardHeader.style.borderRadius = "5px 5px 0 0";
+  cardHeader.style.width = "100%";
 
   const header = document.createElement("h1");
   header.textContent = "The maze isn't meant for you";
+  header.style.textAlign = "center";
 
   cardHeader.appendChild(header);
-  underConstruction.appendChild(cardHeader);
 
   const description = document.createElement("p");
-  description.textContent = "Service Work In Progress - come back later!";
+  description.textContent = "Service Work In Progress - come back... someday?";
+  description.style.color = "#66757c";
 
+  underConstruction.appendChild(cardHeader);
   underConstruction.appendChild(description);
 
   pageMount.appendChild(underConstruction);
 }
-
 
 
 async function buildList(kind) {
