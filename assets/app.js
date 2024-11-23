@@ -2,11 +2,20 @@ function pageUnderConstruction(){
     const pageMount = document.getElementById("page-mount");
 
     const underConstruction = document.createElement("div");
-    const content= document.createElement("h1")
+    const header = document.createElement("h1");
+    const description = document.createElement("p");
 
-    content.textContent = `The maze isn't meant for you`;
+    underConstruction.style.paddingLeft = "20px";
+    underConstruction.style.paddingTop = "20px";
 
-    underConstruction.appendChild(content)
+    header.style.margin = 0;
+    header.textContent = `The maze isn't meant for you`;
+    
+    description.textContent = "Service Work In Progress - come back later!"
+    
+    underConstruction.appendChild(header);
+    underConstruction.appendChild(description);
+
     pageMount.appendChild(underConstruction);
 }
 
@@ -23,7 +32,7 @@ function buildList(kind){
         li.className = "experimentsListItem";
         li.textContent = `${kind}_${i}`;
         li.addEventListener("click", function(){
-            openExperiment(li.textContent)
+            openExperiment(li.textContent);
         })
         ul.appendChild(li);
     }
