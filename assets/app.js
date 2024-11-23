@@ -22,7 +22,7 @@ function pageUnderConstruction(){
 async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
 
-    const response = await fetch('../experiments-archive/data/experiments.json');
+    const response = await fetch('../../experiments-archive/data/experiments.json');
     const experiments = (await response.json()).reverse();
 
     const listContainer = document.createElement("div");
