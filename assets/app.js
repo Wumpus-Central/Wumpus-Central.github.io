@@ -19,33 +19,28 @@ function pageUnderConstruction(){
     pageMount.appendChild(underConstruction);
 }
 
-function buildList(kind){
+async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
 
-    let experiments = fetch('../experiments-archive/data/experiments.json').then(res => res.json());
-    experiments.reverse();
+    const response = await fetch('../experiments-archive/data/experiments.json');
+    const experiments = (await response.json()).reverse();
 
     const listContainer = document.createElement("div");
     listContainer.className = "experimentsListContainer";
 
     const ul = document.createElement("ul");
 
-    for (let i = 0; i < experiments.length; i++) {
-        const experiment = experiments[i];
-        
-        if (experiment.kind === kind) {
+    experiments
+        .filter(({ kind: experimentKind }) => experimentKind === kind)
+        .forEach(({ id }) => {
             const li = document.createElement("li");
             li.className = "experimentsListItem";
-            li.textContent = experiment.id;
-            li.addEventListener("click", function(){
-                openExperiment(li.textContent);
-            })
+            li.textContent = id;
+            li.onclick = () => openExperiment(id);
             ul.appendChild(li);
-        }
-    }
+        });
 
     listContainer.appendChild(ul);
-
     pageMount.appendChild(listContainer);
 }
 
