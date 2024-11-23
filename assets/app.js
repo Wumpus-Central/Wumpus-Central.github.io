@@ -7,27 +7,28 @@ function pageUnderConstruction() {
   underConstruction.style.borderRadius = "5px";
   underConstruction.style.padding = "20px";
   underConstruction.style.fontFamily = "sans-serif";
-  underConstruction.style.display = "flex";
-  underConstruction.style.flexDirection = "column";
-  underConstruction.style.alignItems = "center";
-  underConstruction.style.justifyContent = "center";
+  underConstruction.style.margin = "20px";
+
+  const cardHeader = document.createElement("div");
+  cardHeader.style.backgroundColor = "#232629";
+  cardHeader.style.color = "#fff";
+  cardHeader.style.padding = "10px";
+  cardHeader.style.borderRadius = "5px 5px 0 0";
 
   const header = document.createElement("h1");
   header.textContent = "The maze isn't meant for you";
-  header.style.fontSize = "1.5em";
-  header.style.marginBottom = "10px";
-  header.style.color = "#232629";
+
+  cardHeader.appendChild(header);
+  underConstruction.appendChild(cardHeader);
 
   const description = document.createElement("p");
-  description.textContent = "Service Work In Progress - come back... someday?";
-  description.style.fontSize = "1em";
-  description.style.color = "#66757c";
+  description.textContent = "Service Work In Progress - come back later!";
 
-  underConstruction.appendChild(header);
   underConstruction.appendChild(description);
 
   pageMount.appendChild(underConstruction);
 }
+
 
 
 async function buildList(kind) {
