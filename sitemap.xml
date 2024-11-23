@@ -7,37 +7,37 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://wumpus-central.github.io/experiments-archive/</loc>
+    <loc>https://wumpus-central.github.io/experiments/</loc>
     <lastmod>2024-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://wumpus-central.github.io/experiments-archive/user/</loc>
+    <loc>https://wumpus-central.github.io/experiments/user/</loc>
     <lastmod>2024-11-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://wumpus-central.github.io/experiments-archive/guild/</loc>
+    <loc>https://wumpus-central.github.io/experiments/guild/</loc>
     <lastmod>2024-11-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://wumpus-central.github.io/experiments-archive/marketing/</loc>
+    <loc>https://wumpus-central.github.io/experiments/marketing/</loc>
     <lastmod>2024-11-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://wumpus-central.github.io/experiments-archive/developer/</loc>
+    <loc>https://wumpus-central.github.io/experiments/developer/</loc>
     <lastmod>2024-11-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://wumpus-central.github.io/experiments-archive/unknown/</loc>
+    <loc>https://wumpus-central.github.io/experiments/unknown/</loc>
     <lastmod>2024-11-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
