@@ -72,7 +72,7 @@ async function openExperiment(exp_id, exp_kind){
     const response = await fetch(fixedExpPath);
     let experiment = await response.json();
 
-    const experimentTitle = createElementWithClass("div", "experimentCardHeading");
+    const experimentTitle = createElement("div");
     const experimentId = document.createElement("div");
 
     if(!experiment["label"]){
