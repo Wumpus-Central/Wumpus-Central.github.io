@@ -63,6 +63,15 @@ header .logo img {
     width: 50px;
 }
 
+.WIP {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.WIPheading {
+    margin: 0;
+}
+
 .bodyNavButtonsContainer {
     list-style-type: none;
     padding: 0px;
@@ -147,7 +156,7 @@ ul.bodyNavButtonsContainer li:last-child {
     margin-bottom: 20px;
 }
 
-.experimentCardHeading {
+.experimentCardHeader {
     background-color: var(--app-element-bg-color);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;

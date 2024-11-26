@@ -24,12 +24,10 @@ function pageUnderConstruction(){
     const header = document.createElement("h1");
     const description = document.createElement("p");
 
-    underConstruction.style.paddingLeft = "20px";
-    underConstruction.style.paddingTop = "20px";
+    underConstruction.className = "WIP"
+    header.className = "WIPheading"
 
-    header.style.margin = 0;
     header.textContent = `The maze isn't meant for you`;
-
     description.textContent = "Service Work In Progress - come back later!"
 
     underConstruction.appendChild(header);
@@ -67,7 +65,7 @@ async function openExperiment(exp_id, exp_kind){
     const pageMount = document.getElementById("page-mount");
 
     const experimentCard = createElementWithClass("div", "experimentCard");
-    const experimentCardHeader = createElementWithClass("div", "experimentCardHeading");
+    const experimentCardHeader = createElementWithClass("div", "experimentCardHeader");
     const experimentCardContent = createElementWithClass("div", "experimentCardContent");
 
     const fixedExpPath = exp_kind ? `../../experiments-archive/data/${exp_kind}/${exp_id}.json` : `../../experiments-archive/data/${exp_id}.json`;
