@@ -41,7 +41,7 @@ function pageUnderConstruction(){
 async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
 
-    const response = await fetch('https://wumpus-central.github.io/experiments-archive/data/experiments.json');
+    const response = await fetch('../../experiments-archive/data/experiments.json');
     const experiments = (await response.json()).reverse();
 
     const listContainer = document.createElement("div");
@@ -70,7 +70,7 @@ async function openExperiment(exp_id, exp_kind){
     const experimentCardHeader = createElementWithClass("div", "experimentCardHeading");
     const experimentCardContent = createElementWithClass("div", "experimentCardContent");
 
-    const fixedExpPath = exp_kind ? `https://wumpus-central.github.io/experiments-archive/data/${exp_kind}/${exp_id}.json` : `https://wumpus-central.github.io/experiments-archive/data/${exp_id}.json`;
+    const fixedExpPath = exp_kind ? `../../experiments-archive/data/${exp_kind}/${exp_id}.json` : `../../experiments-archive/data/${exp_id}.json`;
     const response = await fetch(fixedExpPath);
     let experiment = await response.json();
 
