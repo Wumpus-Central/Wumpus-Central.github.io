@@ -1,3 +1,22 @@
+/*
+    UTILS
+*/
+
+function createElementWithClass(tagName, className = "") {
+    const element = document.createElement(tagName);
+
+    if (className) {
+        element.className = className;
+    }
+
+    return element;
+}
+
+
+/*
+    CONSTRUCTORS
+*/
+
 function pageUnderConstruction(){
     const pageMount = document.getElementById("page-mount");
 
@@ -22,7 +41,7 @@ function pageUnderConstruction(){
 async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
 
-    const response = await fetch('../../experiments-archive/data/experiments.json');
+    const response = await fetch('https://wumpus-central.github.io/experiments-archive/data/experiments.json');
     const experiments = (await response.json()).reverse();
 
     const listContainer = document.createElement("div");
@@ -36,7 +55,7 @@ async function buildList(kind) {
             const li = document.createElement("li");
             li.className = "experimentsListItem";
             li.textContent = id;
-            li.onclick = () => openExperiment(id);
+            li.onclick = () => openExperiment(id, kind);
             ul.appendChild(li);
         });
 
@@ -44,10 +63,38 @@ async function buildList(kind) {
     pageMount.appendChild(listContainer);
 }
 
-function openExperiment(exp_id){
-    alert(exp_id)
-    /*
-        TODO
-    */
-   return;
+async function openExperiment(exp_id, exp_kind){
+    const pageMount = document.getElementById("page-mount");
+
+    const experimentCard = createElementWithClass("div", "experimentCard");
+    const experimentCardHeader = createElementWithClass("div", "experimentCardHeading");
+    const experimentCardContent = createElementWithClass("div", "experimentCardContent");
+
+    const fixedExpPath = exp_kind ? `https://wumpus-central.github.io/experiments-archive/data/${exp_kind}/${exp_id}.json` : `https://wumpus-central.github.io/experiments-archive/data/${exp_id}.json`;
+    const response = await fetch(fixedExpPath);
+    let experiment = await response.json();
+
+    const experimentTitle = createElementWithClass("div", "experimentCardHeading");
+    const experimentId = document.createElement("div");
+
+    if(!experiment["label"]){
+        experimentTitle.textContent = experiment["id"];
+    } else {
+        experimentTitle.textContent = experiment["label"];
+        experimentId.textContent = experiment["id"];
+    }
+
+    experimentCardHeader.appendChild(experimentTitle);
+
+    const experimentKind = document.createElement("div");
+    experimentKind.textContent = experiment["kind"];
+
+    experimentCardContent.appendChild(experimentId);
+    experimentCardContent.appendChild(experimentKind);
+
+    experimentCard.appendChild(experimentCardHeader);
+    experimentCard.appendChild(experimentCardContent);
+
+    pageMount.innerHTML = '';
+    pageMount.appendChild(experimentCard);
 }
