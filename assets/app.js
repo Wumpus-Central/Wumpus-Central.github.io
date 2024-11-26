@@ -20,12 +20,9 @@ function createElementWithClass(tagName, className = "") {
 function pageUnderConstruction(){
     const pageMount = document.getElementById("page-mount");
 
-    const underConstruction = document.createElement("div");
-    const header = document.createElement("h1");
+    const underConstruction = createElementWithClass("div", "WIP");
+    const header = createElementWithClass("h1", "WIPheading");
     const description = document.createElement("p");
-
-    underConstruction.className = "WIP"
-    header.className = "WIPheading"
 
     header.textContent = `The maze isn't meant for you`;
     description.textContent = "Service Work In Progress - come back later!"
@@ -42,16 +39,14 @@ async function buildList(kind) {
     const response = await fetch('../../experiments-archive/data/experiments.json');
     const experiments = (await response.json()).reverse();
 
-    const listContainer = document.createElement("div");
-    listContainer.className = "experimentsListContainer";
+    const listContainer = createElementWithClass("div", "experimentsListContainer");
 
     const ul = document.createElement("ul");
 
     experiments
         .filter(({ kind: experimentKind }) => experimentKind === kind)
         .forEach(({ id }) => {
-            const li = document.createElement("li");
-            li.className = "experimentsListItem";
+            const li = createElementWithClass("li", "experimentsListItem");
             li.textContent = id;
             li.onclick = () => openExperiment(id, kind);
             ul.appendChild(li);
