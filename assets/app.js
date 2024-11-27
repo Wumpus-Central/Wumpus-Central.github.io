@@ -84,7 +84,10 @@ async function openExperiment(exp_id, exp_kind){
     experimentKind.textContent = `Kind: ${experiment["kind"]}`;
 
     experimentCardContent.appendChild(experimentId);
-    experimentCardContent.appendChild(experimentKind);
+
+    if (experiment["kind"]) {
+        experimentCardContent.appendChild(experimentKind);
+    }
 
     experimentCard.appendChild(experimentCardHeader);
     experimentCard.appendChild(experimentCardContent);
