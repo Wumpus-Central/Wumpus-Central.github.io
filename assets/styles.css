@@ -157,15 +157,35 @@ ul.bodyNavButtonsContainer li:last-child {
 }
 
 .experimentCardHeader {
+    align-content: center;
+    height: 45px;
     background-color: var(--app-element-bg-color);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
 
+.experimentCardHeader h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+}
+
 .experimentCardContent {
+    padding: 10px;
     background-color: var(--app-element-bg-color-lighter-200);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+}
+
+.experimentCardContent div {
+    margin-bottom: 7px;
+}
+
+.experimentCardContent div:last-child {
+    margin-bottom: 0px;
 }
 
 @media (max-width: 768px) {
