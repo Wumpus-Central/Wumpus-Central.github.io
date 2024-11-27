@@ -68,7 +68,9 @@ async function openExperiment(exp_id, exp_kind){
     let experiment = await response.json();
 
     const experimentTitle = document.createElement("h3");
+    const experimentHash = document.createElement("div");
     const experimentId = document.createElement("div");
+    const experimentKind = document.createElement("div");
 
     if(!experiment["label"]){
         experimentTitle.textContent = experiment["id"];
@@ -78,11 +80,12 @@ async function openExperiment(exp_id, exp_kind){
         experimentId.textContent = `Id: ${experiment["id"]}`;
     }
 
-    experimentCardHeader.appendChild(experimentTitle);
-
-    const experimentKind = document.createElement("div");
+    experimentHash.textContent = `Hash: ${experiment["hash"]}`;
     experimentKind.textContent = `Kind: ${experiment["kind"]}`;
 
+    experimentCardHeader.appendChild(experimentTitle);
+
+    experimentCardContent.appendChild(experimentHash);
     experimentCardContent.appendChild(experimentId);
 
     if (experiment["kind"]) {
