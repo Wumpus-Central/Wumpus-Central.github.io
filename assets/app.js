@@ -77,13 +77,20 @@ async function buildList(kind) {
 async function openExperiment(exp_id, exp_kind){
     const pageMount = document.getElementById("page-mount");
 
-    const experimentCard = createElementWithClass("div", "experimentCard");
-    const experimentCardHeader = createElementWithClass("div", "experimentCardHeader");
-    const experimentCardContent = createElementWithClass("div", "experimentCardContent");
-
     const fixedExpPath = exp_kind ? buildRoute("EXPERIMENT_WITH_KIND", [exp_kind, exp_id]) : buildRoute("EXPERIMENT_NO_KIND", [exp_id]);
     const response = await fetch(fixedExpPath);
     let experiment = await response.json();
+
+    let experimentCard  = buildExperimentInfoCard(experiment);
+
+    pageMount.innerHTML = '';
+    pageMount.appendChild(experimentCard);
+}
+
+function buildExperimentInfoCard(experiment){
+    const experimentCardSkeleton = createElementWithClass("div", "experimentCard");
+    const experimentCardHeader = createElementWithClass("div", "experimentCardHeader");
+    const experimentCardContent = createElementWithClass("div", "experimentCardContent");
 
     const experimentTitle = document.createElement("h3");
     const experimentHash = document.createElement("div");
@@ -110,9 +117,12 @@ async function openExperiment(exp_id, exp_kind){
         experimentCardContent.appendChild(experimentKind);
     }
 
-    experimentCard.appendChild(experimentCardHeader);
-    experimentCard.appendChild(experimentCardContent);
+    experimentCardSkeleton.appendChild(experimentCardHeader);
+    experimentCardSkeleton.appendChild(experimentCardContent);
 
-    pageMount.innerHTML = '';
-    pageMount.appendChild(experimentCard);
+    return experimentCardSkeleton
 }
+
+function buildExperimentTreatmentCardForUser(){}
+
+function buildExperimentRolloutElementForUser(){}
