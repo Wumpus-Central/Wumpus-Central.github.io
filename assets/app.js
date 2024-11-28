@@ -12,6 +12,24 @@ function createElementWithClass(tagName, className = "") {
     return element;
 }
 
+function buildRoute(routeName, args = [], env){
+    let prefix;
+
+    if(env == "DEV"){ 
+        prefix = "https://wumpus-central.github.io";
+    } else {
+        const depth = window.location.pathname.split('/').filter(Boolean).length; 
+        prefix = depth === 0 ? "./" : "../".repeat(depth);
+    } 
+
+    const routes = {
+        EXPERIMENTS_COLLECTION:  `/experiments-archive/data/experiments.json`,
+        EXPERIMENT_WITH_KIND: `/experiments-archive/data/${args[0]}/${args[1]}.json`,
+        EXPERIMENT_NO_KIND: `/experiments-archive/data/${args[0]}.json`
+    }
+
+    return `${prefix}${routes[routeName]}`;
+}
 
 /*
     CONSTRUCTORS
@@ -36,7 +54,7 @@ function pageUnderConstruction(){
 async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
 
-    const response = await fetch('../../experiments-archive/data/experiments.json');
+    const response = await fetch(buildRoute("EXPERIMENTS_COLLECTION"));
     const experiments = (await response.json()).reverse();
 
     const listContainer = createElementWithClass("div", "experimentsListContainer");
@@ -63,7 +81,7 @@ async function openExperiment(exp_id, exp_kind){
     const experimentCardHeader = createElementWithClass("div", "experimentCardHeader");
     const experimentCardContent = createElementWithClass("div", "experimentCardContent");
 
-    const fixedExpPath = exp_kind ? `../../experiments-archive/data/${exp_kind}/${exp_id}.json` : `../../experiments-archive/data/${exp_id}.json`;
+    const fixedExpPath = exp_kind ? buildRoute("EXPERIMENT_WITH_KIND", [exp_kind, exp_id]) : buildRoute("EXPERIMENT_NO_KIND", [exp_id]);
     const response = await fetch(fixedExpPath);
     let experiment = await response.json();
 
