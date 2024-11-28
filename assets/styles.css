@@ -181,6 +181,9 @@ ul.bodyNavButtonsContainer li:last-child {
 }
 
 .experimentCardContent div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-bottom: 7px;
 }
 
