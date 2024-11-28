@@ -54,7 +54,7 @@ function pageUnderConstruction(){
 async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
 
-    const response = await fetch(buildRoute("EXPERIMENTS_COLLECTION", []));
+    const response = await fetch(buildRoute("EXPERIMENTS_COLLECTION"));
     const experiments = (await response.json()).reverse();
 
     const listContainer = createElementWithClass("div", "experimentsListContainer");
