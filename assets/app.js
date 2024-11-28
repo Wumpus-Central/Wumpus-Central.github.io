@@ -28,7 +28,7 @@ function buildRoute(routeName, args = [], env){
         EXPERIMENT_NO_KIND: `/experiments-archive/data/${args[0]}.json`
     }
 
-    return `${prefix}${routes[routeName]}`;
+    return `${prefix}${routes[routeName]}`.replace(/([^:]\/)\/+/g, "$1");
 }
 
 /*
