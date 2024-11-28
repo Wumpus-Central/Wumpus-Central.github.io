@@ -54,7 +54,7 @@ function pageUnderConstruction(){
 async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
 
-    const response = await fetch(buildRoute("EXPERIMENTS_COLLECTION"));
+    const response = await fetch(buildRoute("EXPERIMENTS_COLLECTION", []));
     const experiments = (await response.json()).reverse();
 
     const listContainer = createElementWithClass("div", "experimentsListContainer");
@@ -81,10 +81,23 @@ async function openExperiment(exp_id, exp_kind){
     const response = await fetch(fixedExpPath);
     let experiment = await response.json();
 
-    let experimentCard  = buildExperimentInfoCard(experiment);
+    let experimentDetailsCard = buildExperimentInfoCard(experiment);
 
     pageMount.innerHTML = '';
-    pageMount.appendChild(experimentCard);
+    pageMount.appendChild(experimentDetailsCard);
+
+    if(experiment["kind"] == "user" && experiment["treatments"]){
+        experiment["treatments"].forEach(treatment => {
+            card = buildExperimentTreatmentCardForUser(treatment);
+            pageMount.appendChild(card);
+        });
+    }
+
+    if(experiment["kind"] == "guild" && experiment["treatments"]){
+        experiment["treatments"].forEach(treatment => {
+            console.log(treatment["label"])
+        });
+    }
 }
 
 function buildExperimentInfoCard(experiment){
@@ -123,6 +136,30 @@ function buildExperimentInfoCard(experiment){
     return experimentCardSkeleton
 }
 
-function buildExperimentTreatmentCardForUser(){}
+function buildExperimentTreatmentCardForUser(treatment){
+    const treatmentCardSkeleton = createElementWithClass("div", "experimentCard");
+    const treatmentCardHeader = createElementWithClass("div", "experimentCardHeader");
+    const treatmentCardContent = createElementWithClass("div", "experimentCardContent");
+
+    const treatmentLabel = document.createElement("h4");
+    treatmentLabel.textContent = `${treatment["id"]} - ${treatment["label"]}`;
+    
+    treatmentCardHeader.appendChild(treatmentLabel);
+
+    if (treatment["config"]) {
+        const treatmentConfig = createElementWithClass("pre", "experimentCardContentTreatmentConfigCodeblock");
+    
+        treatmentConfig.textContent = JSON.stringify(treatment["config"], null, 2);
+    
+        treatmentCardContent.appendChild(treatmentConfig);
+    }
+    
+    
+
+    treatmentCardSkeleton.appendChild(treatmentCardHeader);
+    treatmentCardSkeleton.appendChild(treatmentCardContent);
+
+    return treatmentCardSkeleton
+}
 
 function buildExperimentRolloutElementForUser(){}

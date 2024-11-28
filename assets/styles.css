@@ -153,6 +153,9 @@ ul.bodyNavButtonsContainer li:last-child {
     padding-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.experimentCard:last-child {
     margin-bottom: 20px;
 }
 
@@ -165,6 +168,15 @@ ul.bodyNavButtonsContainer li:last-child {
 }
 
 .experimentCardHeader h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+}
+
+.experimentCardHeader h4 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -190,6 +202,20 @@ ul.bodyNavButtonsContainer li:last-child {
 .experimentCardContent div:last-child {
     margin-bottom: 0px;
 }
+
+.experimentCardContentTreatmentConfigCodeblock {
+    white-space: pre;
+    word-wrap: normal;
+    font-family: monospace;
+    overflow-x: auto;
+    background-color: #121316;
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #0d0d0f;
+    max-width: 100%;
+}
+
 
 @media (max-width: 768px) {
     header ul.navButtonsContainer {
