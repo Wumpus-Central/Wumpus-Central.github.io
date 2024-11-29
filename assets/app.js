@@ -38,7 +38,7 @@ function buildRoute(routeName, args = [], env){
 function pageUnderConstruction(){
     const pageMount = document.getElementById("page-mount");
 
-    const underConstruction = createElementWithClass("div", "WIP");
+    const underConstruction = document.createElement("div");
     const header = createElementWithClass("h1", "WIPheading");
     const description = document.createElement("p");
 
@@ -54,7 +54,7 @@ function pageUnderConstruction(){
 async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
 
-    const response = await fetch(buildRoute("EXPERIMENTS_COLLECTION"));
+    const response = await fetch(buildRoute("EXPERIMENTS_COLLECTION", [], "DEV"));
     const experiments = (await response.json()).reverse();
 
     const listContainer = createElementWithClass("div", "experimentsListContainer");
@@ -76,20 +76,21 @@ async function buildList(kind) {
 
 async function openExperiment(exp_id, exp_kind){
     const pageMount = document.getElementById("page-mount");
+    const experimentContainer = createElementWithClass("div", "experimentCardsContainer")
 
-    const fixedExpPath = exp_kind ? buildRoute("EXPERIMENT_WITH_KIND", [exp_kind, exp_id]) : buildRoute("EXPERIMENT_NO_KIND", [exp_id]);
+    const fixedExpPath = exp_kind ? buildRoute("EXPERIMENT_WITH_KIND", [exp_kind, exp_id], "DEV") : buildRoute("EXPERIMENT_NO_KIND", [exp_id]);
     const response = await fetch(fixedExpPath);
     let experiment = await response.json();
 
     let experimentDetailsCard = buildExperimentInfoCard(experiment);
 
     pageMount.innerHTML = '';
-    pageMount.appendChild(experimentDetailsCard);
+    experimentContainer.appendChild(experimentDetailsCard);
 
     if(experiment["kind"] == "user" && experiment["treatments"]){
         experiment["treatments"].forEach(treatment => {
             card = buildExperimentTreatmentCardForUser(treatment);
-            pageMount.appendChild(card);
+            experimentContainer.appendChild(card);
         });
     }
 
@@ -98,6 +99,8 @@ async function openExperiment(exp_id, exp_kind){
             console.log(treatment["label"])
         });
     }
+
+    pageMount.appendChild(experimentContainer)
 }
 
 function buildExperimentInfoCard(experiment){
