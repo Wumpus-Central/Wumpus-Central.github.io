@@ -54,7 +54,7 @@ function pageUnderConstruction(){
 async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
 
-    const response = await fetch(buildRoute("EXPERIMENTS_COLLECTION", [], "DEV"));
+    const response = await fetch(buildRoute("EXPERIMENTS_COLLECTION"));
     const experiments = (await response.json()).reverse();
 
     const listContainer = createElementWithClass("div", "experimentsListContainer");
@@ -78,7 +78,7 @@ async function openExperiment(exp_id, exp_kind){
     const pageMount = document.getElementById("page-mount");
     const experimentContainer = createElementWithClass("div", "experimentCardsContainer")
 
-    const fixedExpPath = exp_kind ? buildRoute("EXPERIMENT_WITH_KIND", [exp_kind, exp_id], "DEV") : buildRoute("EXPERIMENT_NO_KIND", [exp_id]);
+    const fixedExpPath = exp_kind ? buildRoute("EXPERIMENT_WITH_KIND", [exp_kind, exp_id]) : buildRoute("EXPERIMENT_NO_KIND", [exp_id]);
     const response = await fetch(fixedExpPath);
     let experiment = await response.json();
 
