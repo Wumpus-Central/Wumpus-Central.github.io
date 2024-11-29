@@ -51,6 +51,22 @@ function pageUnderConstruction(){
     pageMount.appendChild(underConstruction);
 }
 
+function pageNotFound(){
+    const pageMount = document.getElementById("page-mount");
+
+    const underConstruction = document.createElement("div");
+    const header = createElementWithClass("h1", "WIPheading");
+    const description = document.createElement("p");
+
+    header.textContent = `ERROR 404`;
+    description.textContent = "Page not Found! Get back to service by clicking icon."
+
+    underConstruction.appendChild(header);
+    underConstruction.appendChild(description);
+
+    pageMount.appendChild(underConstruction);
+}
+
 async function buildList(kind) {
     const pageMount = document.getElementById("page-mount");
 
