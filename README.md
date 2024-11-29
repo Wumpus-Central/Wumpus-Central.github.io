@@ -1,5 +1,5 @@
 <div align='center'>
-   <h3>The official prototype Wumpus Cetral Website</h3>
+   <h3>Final Prototype Wumpus Cetral Static Website</h3>
 
-   Source repository for [Wumpus Cetral Website](https://wumpus-central.github.io)
+   Source of [wumpus-central.github.io](https://wumpus-central.github.io)
 </div>
