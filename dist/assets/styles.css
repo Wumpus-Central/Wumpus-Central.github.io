@@ -1,0 +1,374 @@
+:root {
+    --background-color: #0c0d12;
+
+    --blurple: #5865f2;
+    --blurple-light: #8a94f7;
+    --blurple-soft: #6f7bf5;
+    --blurple-dark: #4752c4;
+    --blurple-hover: #4752c4;
+    --blurple-active: #3c45a5;
+
+    --surface-color: rgba(57, 58, 65, 0.82);
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --text-default: #f2f3f5;
+    --text-muted: #b5bac1;
+    --focus-ring: #6aa8f4;
+
+    --button-secondary: rgba(255, 255, 255, 0.12);
+    --button-secondary-hover: rgba(255, 255, 255, 0.16);
+    --button-secondary-active: rgba(255, 255, 255, 0.2);
+
+    --font-family: 'Noto Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+
+    --radius-card: 16px;
+    --radius-pill: 9999px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    color: var(--text-default);
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/*
+    AURORA BACKGROUND
+*/
+
+.aurora {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.aurora::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, transparent 50%, rgba(8, 9, 12, 0.7) 100%);
+}
+
+.auroraCurtain {
+    position: absolute;
+    inset: -25% -15% 5% -15%;
+    background: repeating-linear-gradient(
+        108deg,
+        transparent 0%,
+        rgba(88, 101, 242, 0.45) 6%,
+        rgba(138, 148, 247, 0.3) 10%,
+        transparent 16%,
+        transparent 26%
+    );
+    filter: blur(55px);
+    mix-blend-mode: screen;
+    opacity: 0.65;
+    will-change: transform;
+    animation: auroraCurtainDrift 38s ease-in-out infinite alternate;
+}
+
+.auroraBlob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    mix-blend-mode: screen;
+    opacity: 0.7;
+    will-change: transform;
+}
+
+.auroraBlob1 {
+    width: 70vmax;
+    height: 45vmax;
+    top: -20%;
+    left: -15%;
+    background: radial-gradient(circle at 50% 50%, var(--blurple) 0%, transparent 65%);
+    animation: auroraDrift1 26s ease-in-out infinite alternate;
+}
+
+.auroraBlob2 {
+    width: 60vmax;
+    height: 40vmax;
+    top: 5%;
+    right: -20%;
+    transform: rotate(-15deg);
+    background: radial-gradient(circle at 50% 50%, var(--blurple-light) 0%, transparent 65%);
+    animation: auroraDrift2 34s ease-in-out infinite alternate;
+    animation-delay: -8s;
+}
+
+.auroraBlob3 {
+    width: 55vmax;
+    height: 55vmax;
+    bottom: -30%;
+    left: 10%;
+    background: radial-gradient(circle at 50% 50%, var(--blurple-dark) 0%, transparent 65%);
+    animation: auroraDrift3 22s ease-in-out infinite alternate;
+    animation-delay: -4s;
+}
+
+.auroraBlob4 {
+    width: 45vmax;
+    height: 30vmax;
+    top: 25%;
+    left: 30%;
+    background: radial-gradient(circle at 50% 50%, var(--blurple-soft) 0%, transparent 65%);
+    animation: auroraDrift4 30s ease-in-out infinite alternate;
+    animation-delay: -15s;
+}
+
+@keyframes auroraDrift1 {
+    from {
+        transform: translate3d(-12%, -10%, 0) scale(1) rotate(0deg);
+    }
+    to {
+        transform: translate3d(20%, 15%, 0) scale(1.25) rotate(18deg);
+    }
+}
+
+@keyframes auroraDrift2 {
+    from {
+        transform: translate3d(15%, -12%, 0) scale(1.15) rotate(-15deg);
+    }
+    to {
+        transform: translate3d(-18%, 18%, 0) scale(0.95) rotate(5deg);
+    }
+}
+
+@keyframes auroraDrift3 {
+    from {
+        transform: translate3d(-15%, 20%, 0) scale(0.9) rotate(0deg);
+    }
+    to {
+        transform: translate3d(18%, -15%, 0) scale(1.2) rotate(-12deg);
+    }
+}
+
+@keyframes auroraDrift4 {
+    from {
+        transform: translate3d(5%, 15%, 0) scale(1) rotate(10deg);
+    }
+    to {
+        transform: translate3d(-20%, -10%, 0) scale(1.3) rotate(-8deg);
+    }
+}
+
+@keyframes auroraCurtainDrift {
+    from {
+        transform: translate3d(-8%, -4%, 0) rotate(2deg) scale(1.05);
+    }
+    to {
+        transform: translate3d(8%, 4%, 0) rotate(-2deg) scale(1.2);
+    }
+}
+
+/*
+    LANDING CARD
+*/
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.landingCard {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 36px 32px;
+    box-sizing: border-box;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    box-shadow:
+        0 12px 24px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    animation: cardEnter 450ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.landingCardLogo {
+    display: flex;
+    margin-bottom: 22px;
+}
+
+.landingCardLogo img {
+    width: 104px;
+    height: 104px;
+}
+
+.landingCardTitle {
+    margin: 0 0 12px;
+    font-size: clamp(1.4rem, 4.5vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+.landingCardText {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.landingCardDivider {
+    width: 100%;
+    height: 1px;
+    margin: 22px 0;
+    background-color: var(--border-subtle);
+}
+
+.landingCardActions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.landingButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 44px;
+    border-radius: var(--radius-pill);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background-color 50ms ease-in;
+}
+
+.landingButton:hover {
+    transition:
+        background-color 150ms ease-out;
+}
+
+.landingButton:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+.landingButtonPrimary {
+    background-color: var(--blurple);
+}
+
+.landingButtonPrimary:hover {
+    background-color: var(--blurple-hover);
+}
+
+.landingButtonPrimary:active {
+    background-color: var(--blurple-active);
+}
+
+.landingButtonSecondary {
+    background-color: var(--button-secondary);
+}
+
+.landingButtonSecondary:hover {
+    background-color: var(--button-secondary-hover);
+}
+
+.landingButtonSecondary:active {
+    background-color: var(--button-secondary-active);
+}
+
+.landingCardSocials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.landingSocialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--text-muted);
+    transition:
+        background-color 50ms ease-in,
+        color 50ms ease-in;
+}
+
+.landingSocialLink:hover {
+    background-color: var(--button-secondary);
+    color: var(--text-default);
+    transition:
+        background-color 150ms ease-out,
+        color 150ms ease-out;
+}
+
+.landingSocialLink:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+.landingSocialLink svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+@media (max-width: 480px) {
+    .landingCard {
+        padding: 30px 22px 26px;
+    }
+
+    .landingCardLogo img {
+        width: 88px;
+        height: 88px;
+    }
+
+    .auroraBlob {
+        filter: blur(60px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .landingCard {
+        animation: none;
+    }
+
+    .auroraBlob,
+    .auroraCurtain {
+        animation: none;
+    }
+}
